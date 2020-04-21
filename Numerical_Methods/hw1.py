@@ -15,16 +15,25 @@ def f(x, n):
         array.append(approx)
     #print(array)
     return np.sum(array)
-true_value = np.format_float_positional(np.pi /4, precision=8)
-print("Looking for: {} or {}".format(true_value, np.pi/4)) #0.78539816
+y = np.pi/4
+y_prime = np.format_float_positional(np.pi /4, precision=6)
+
 term = 1
+print(y_prime)
+print(f(1, 127324))
+
+"""
+Something to do with error propogation
+"""
+"""
 while term < 10:
     approximation = f(1, term)
     significant = np.format_float_positional(approximation, precision=8)
     print(term, significant)
     if significant == true_value:
         print(term)
-        print("Juuhuu")
+        #print("Juuhuu")
         break
     else:
         term += 1
+"""
