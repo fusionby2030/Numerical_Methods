@@ -53,9 +53,10 @@ Thus vectorizing is much, much more efficient for big data!
 
 In addition, we receive the two graphs:
 
-![Individual Displacements]
+![Individual Displacements][MSD]
 
 Mean Squared Displacements:
-![MSD][ID]
+![Mean Squared][ID]
 
-[ID]:https://github.com/fusionby2030/Numerical_Methods/edit/master/EP4/HW_01/results/IndividualDisplacements.png "Individual Displacements"
+[ID]: https://github.com/fusionby2030/Numerical_Methods/edit/master/EP4/HW_01/results/IndividualDisplacements.png "Individual Displacements"
+[MSD]: https://github.com/fusionby2030/Numerical_Methods/edit/master/EP4/HW_01/results/Running_Average_Displacements.png "Mean Squared Displacements"
