@@ -8,7 +8,7 @@ That means each student fills in four columns each of length  100.
 The  first  column A is  simply  the  trial  number i from  1  to100 (Ai=i).  
 The second column B is the result of flipping of the coin you use, either +1 or -1.  
 The third column C is the sum over the second column,  e.g.Ck=∑ki=1Bi.   
-This  is  an  analogue  of  the  displacement.Finally,  the  fourth  column D represents  the  mean  square  displacement D k=∑ki=1(Ci)2
+This  is  an  analogue  of  the  displacement. Finally,  the  fourth  column D represents  the  mean  square  displacement D k=∑ki=1(Ci)2
 
 
 
@@ -22,29 +22,29 @@ Afterwards,  you  need  to  find  one  person  who  will perform  an  average  o
 
 
 
-##Code Comments
+## Code Comments
 This week we explore the different ways of how to create and manipulate data using the numpy library.
 In the dicesheet.py, one finds the following functions:
 
-###numpy_looping_function
+### numpy_looping_function
 
 This is a basic and quite understandable way to loop through an initially zero 3D array, and change the values
 throughout the loop.
 
-###vectorized_function
+### vectorized_function
 This function utilizes "vectorization", i.e. efficiently using the entire array as opposed to looping through it
 
-###MSD
+### MSD
 Functions to calculate the mean squared displacement
 
-###Plot creator
+### Plot creator
 Using matplotlib to make pretty plots of the data
 
-###Main
+### Main
 One function to rule them all!
 Using this, we can put only the functions we want to use each time we run the program.
 
-##Discussion
+## Discussion
 As an output, we receive the time it takes for the two types of data creating functions:
 
 Looping created arrays in 0.0965 seconds
