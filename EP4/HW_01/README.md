@@ -10,6 +10,11 @@ The second column B is the result of flipping of the coin you use, either +1 or 
 The third column C is the sum over the second column,  e.g.Ck=∑ki=1Bi.   
 This  is  an  analogue  of  the  displacement. Finally,  the  fourth  column D represents  the  mean  square  displacement D k=∑ki=1(Ci)2
 
+<object data="results/Seminar_01_EP4_2020.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="results/Seminar_01_EP4_2020.pdf">
+       
+    </embed>
+</object>
 
 
 Afterwards,  you  need  to  find  one  person  who  will perform  an  average  over  the  EP4-ensemble  of  the  results  obtained  and will deliver two graphs:
