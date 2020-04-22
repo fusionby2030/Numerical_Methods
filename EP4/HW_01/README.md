@@ -52,5 +52,5 @@ Vectorizing created arrays in 0.0069 seconds
 Thus vectorizing is much, much more efficient for big data!
 
 In addition, we receive the two graphs:
-![Individual Displacements](/results/IndividualDisplacements.png)
-![MSD](/results/Running_Average_Displacements.png)
+![Individual Displacements](EP4/HW_01/results/IndividualDisplacements.png)
+![MSD](EP4/HW_01/results/Running_Average_Displacements.png)
