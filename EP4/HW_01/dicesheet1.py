@@ -14,7 +14,6 @@ def initialize_coing_flips():
 def flip_coin():
     return 2*np.random.randint(2)-1
 
-
 #Global variables are normally a bad idea!!
 global num_students
 num_students = int(50)
@@ -34,14 +33,12 @@ def msd_2d(x):
         result[:, i] = np.average((x[:, i:] - x[:, :-i])**2, axis=1)
     return result
 
-
 def numpy_looping_function():
     num_trials = int(100)
-    data_array = np.zeros((num_students,num_trials,4))
+    data_array = np.zeros((50,100,4))
     for n in range(num_students):
         student_array = data_array[n]
         running_sum = 0.0
-        running_sum2 = 0.0
         for i in range(num_trials):
             student_array[i][0] = int(i+1)
             coin_flip = flip_coin()
@@ -56,7 +53,6 @@ def numpy_looping_function():
 def vectorized_function():
     coin_flips_array = initialize_coing_flips()
     med_dist = np.cumsum(coin_flips_array, axis = 1)
-    print(med_dist.shape)
     msd_displacement = msd_2d(med_dist)
     data_array = np.dstack((coin_flips_array, med_dist, msd_displacement))
     meaned_array = np.mean(data_array, axis=0)
@@ -78,7 +74,6 @@ def plot_creator(data_array, meaned_array, index, y_axis, graph_name, filename):
 def main():
     tic = time.perf_counter()
     data_array, meaned_array = numpy_looping_function()
-
     toc1 = time.perf_counter()
     vectorized_array, vect_mean = vectorized_function()
     toc2 = time.perf_counter()
