@@ -9,6 +9,8 @@
 namely λ_max*T = b.
 For  your  calculations  you  will  need  to  solve  a transcendent equation, you can do it numerically or graphically.  With the b-value determined, find the wavelength the Sun and human body most efficiently emit.  
 
+![Graph ][graph]
+
 ## Code Comments
 
 This week we explore the different ways of solving polynomials.
@@ -83,3 +85,5 @@ Normally not used as a root finding algorithm
 [secent]: https://github.com/fusionby2030/Numerical_Methods/edit/master/EP4/HW_03/files/secentmethod.png "Secent"
 
 [lagrangepic]: https://github.com/fusionby2030/Numerical_Methods/edit/master/EP4/HW_03/files/lagrangepic.png "lagrange"
+
+[graph]: https://github.com/fusionby2030/Numerical_Methods/edit/master/EP4/HW_03/files/Figure_1.png "Figure_1"

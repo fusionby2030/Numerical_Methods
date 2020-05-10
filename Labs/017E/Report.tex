@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{hyperref}
+\usepackage[a4paper, textwidth=450pt]{geometry}
 
 \graphicspath{ {./files/} }
 
@@ -16,7 +17,9 @@
 \maketitle
 
 \section{Preperation}
-In order to understand diffraction, we make use of the Fourier transform. This allows us to predict how and where light will arrive when traveling through an aperature.
+In order to understand diffraction, we make use of the Fourier transform. This allows us to predict how and where light will arrive when traveling through an aperature. Instead of using Origin, I chose to work using python, utelizing the pandas, numpy, and scipy libraries. I justify my choice by the fact that I will have to greatly depend on these libraries if I am to work in the simulation field of study, so I must begin now my preperation. All graphs are then made with matplotlib, and the github repository for each Lab can be found  \href{https://github.com/fusionby2030/Numerical_Methods/tree/master/Labs/017E}{here.} I note that this report mainly focuses on the expiremental questions given in the Powerpoint presentation for the Virtual Lab Course.\\
+\subsection{Fourier Transforms}
+
 \begin{figure}[h]
   \includegraphics[scale=0.5]{fraunhofferdiffraction.png}
   \caption{Here the light in the far field (blue line and variables) is simple the fourier transform of the apertured field (red line and variables)}
@@ -25,7 +28,7 @@ In order to understand diffraction, we make use of the Fourier transform. This a
 
 The Fourier transform of a function $f(x)$ is defined as:
 $$ F(k) = FT[f(x)]=\int_{-\infty}^{\infty}f(x)e^{-2\pi ikx} dx$$
-\subsection{Fourier Transform of Single Slit}
+\\
 The single slit function is defined as:
 
 \[
@@ -40,7 +43,6 @@ and our Fourier transform becomes:
 
 $$F(k) = \int_{-\infty}^{\infty}f(x)e^{-2\pi ikx}dx = \int_{-b/2}^{b/2}e^{- 2\pi ikx}dx = \frac{e^{\pi ikb}-e^{-\pi ikb}}{2\pi ik} = \frac{sin(\pi kb)}{\pi k} = bsinc(\pi bk) $$
 
-\subsection{Fourier Transform of Double Slit}
 
 For the double slit, the following domain is used:
 
@@ -76,7 +78,7 @@ X_k &= \sum_{n=0}^{N-1} x_n \cdot e^{-i 2\pi k n / N} \\
     &= \sum_{m=0}^{N/2-1}x_{2m} \cdot e^{-i 2\pi k m / (N/2)} + e^{-i 2\pi k / N} \sum_{m=0}^{N/2-1}x_{2m+1} \cdot e^{-i 2\pi k m / (N/2)}
 \end{align}
 
-Where $X_k$ are the values of the fourier transform of a given function defined by the values $x_n$. The python implementation can be found on my github under the file \href{https://github.com/fusionby2030/Numerical_Methods/tree/master/Labs/017E/fastfouriertransform.py}{\textit{fastfouriertransform.py}}, along with all graphs and graphing functions: \href{https://github.com/fusionby2030/Numerical_Methods/tree/master/Labs/017E}{Link to Github Repository for Lab O17e}
+Where $X_k$ are the values of the fourier transform of a given function defined by the values $x_n$. The python implementation can be found on my github under the file \href{https://github.com/fusionby2030/Numerical_Methods/tree/master/Labs/017E/fastfouriertransform.py}{\textit{fastfouriertransform.py}}.
 
 Interestingly enough, the FFT is a direct implementation of the convolution theorem for the fourier transform. The convolution theorem:
 $$FT[f(x) \otimes g(x)] = FT[\int_{-\infty}^{\infty} f(x')g(x-x')dx'] = FT[f(x)]FT[g(x)]=F(k)G(k) $$
@@ -110,19 +112,21 @@ For ES1-1 we see that a maximum value $\approx$ 0.8 is occuring at around the ha
 
 \subsection{Attempt to Reproduce}
 We can also produce this kind of graph numerically, which can be found in the github repository under the file \href{https://github.com/fusionby2030/Numerical_Methods/tree/master/Labs/017E/simulatedsingleslit.py}{\textit{simulatedsingleslit.py}}
-For the single slit we can define a square slit at the origin of a graph with amplitude $ I_0 = 1 V/ \sqrt{\mu m} $ and width $d=2.5*10^{-6}$ in figure 2.
+For the single slit we can define a square slit at the origin of a graph with amplitude $ I_0 = 1 V/ \sqrt{\mu m} $ and width $d=2.5*10^{-6}$ in Figure \ref{Seen}.
 
 \begin{figure}[h]
   \caption{$f(x) = 1$ for $\frac{-b}{2} \le x \leq\frac{b}{2}$}
   \centering
   \includegraphics[scale=0.6]{slitrepro.png}
+  \label{Seen}
 \end{figure}
 
-Then we preform the FFT of the above graphs and compare them to the theory, which is seen in Figure 3. So our simulated values and FFT agree okay. But there is much room for error in the calculation of both, which can lead to discrepencies. For example: aliasing, or rounding errors.
+Then we preform the FFT of the above graphs and compare them to the theory, which is seen in Figure \ref{attempt}. So our simulated values and FFT agree okay. But there is much room for error in the calculation of both, which can lead to discrepencies. For example: aliasing, or rounding errors.
 \begin{figure}[h]
   \caption{Theory: $I^2 = \frac{b^2 E_0^2}{\lambda f} sinc^2(\frac{ bx}{\lambda f})$ vs FFT }
   \centering
   \includegraphics[scale=0.6]{thoeryvsnum.png}
+  \label{attempt}
 \end{figure}
 
 \section{Experimental Question 3}
@@ -135,17 +139,19 @@ These graphs were created using numpy and matplotlib and can be found in the fil
   \caption{Here the FFT of the Single Slit intensity profile is preformed}
   \centering
   \includegraphics[scale=0.6]{ES1_2graph.png}
+  \label{singleslit}
 
 \end{figure}
-The FFT in Figure 4 shows the dimensons of the slit by using the equations from the preperation. The width of the FFT of the intensity profile is going to be $2*b$, so we find that $b\approx 2.5*10^{-5}$
+The FFT in Figure \ref{singleslit} shows the dimensons of the slit by using the equations from the preperation. The width of the FFT of the intensity profile is going to be $2*b$, so we find that $b\approx 2.5*10^{-5}$
 \subsection{Double Slit}
 \begin{figure}[h]
   \caption{Here the FFT of the Double Slit intensity profile is preformed}
   \centering
   \includegraphics[scale=0.6]{DS4_1graph.png}
+  \label{doubleslit}
 
 \end{figure}
-In Figure 5 we see the graph of the Intensity and the FFT for the double slit.
+In Figure \ref{doubleslit} we see the graph of the Intensity and the FFT for the double slit.
 From the preperation, we know that the middle triangle is defined has a width of $2*b$ thus to slit width $b=3.872*10^{-5}$ while the two smaller ones have a width of $2*g$ thus to a slit distance $g=8.55*10^{-4}$, both in units of meters.
 
 \section{Expiremental Question 4}
@@ -176,10 +182,6 @@ Brooker, Geoffrey
 \textit{Modern Classical Optics}
 Oxford: Oxford University Press (2003)
 \end{thebibliography}
-
-
-
-
 
 
 
