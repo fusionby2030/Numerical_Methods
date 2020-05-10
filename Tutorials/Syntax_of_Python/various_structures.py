@@ -1,13 +1,18 @@
 """
-Python Tutorials!!
-remove the # before the print statement to see the output of the code above 
+Types of Data Structures in Python:
 
+"""
+
+
+
+
+"""
 Simple function
 f(x) = x^2 if 0 > x < 20
 f(x) = 0 if x < 0
 f(x) = 20 if x > 20
 
-
+Don't Worry Now about how to make these function things.
 """
 
 def func(x): #this is a function to return x**2
@@ -32,21 +37,21 @@ def func2(x):
 #although there is one in the else
 
 
-#print(func2(5)) #Output: 25
-#print(func(23)) #Output: 20
-#print(func(-10)) #Output: 0
+print(func2(5)) #Output: 25
+print(func(23)) #Output: 20
+print(func(-10)) #Output: 0
 
 
 """
 You can also use custom print statements by doing the following
 
 """
-#print("The value of f(x) = x^2 for x = 4 is {}".format(func(4)))
+print("The value of f(x) = x^2 for x = 4 is {}".format(func(4)))
 
-#print("The value of f(x) = x^2 for x = {} is {}".format(3, func(3)))
+print("The value of f(x) = x^2 for x = {} is {}".format(3, func(3)))
 
 b = 25
-#print("The value of f(x) = x^2 for x = {} is {}".format(b, func(b)))
+print("The value of f(x) = x^2 for x = {} is {}".format(b, func(b)))
 
 """
 
@@ -54,6 +59,7 @@ So far we have seen how to define a function using def and returning using retur
 Also printing the output using print() and using the functions
 Now we go onto lists and for loops
 """
+
 
 """
 Task:
@@ -73,7 +79,7 @@ for animal in animal_list:
         #scary_animals = scary_animals + 1
         scary_animals += 1
 
-#print("The number of scary animals in the zoo: {}".format(scary_animals))
+print("The number of scary animals in the zoo: {}".format(scary_animals))
 
 """
 You can also put the above into a function
@@ -85,8 +91,7 @@ def count_things(list, thing):
             count += 1 # Same as just adding 1 to the count
     return count
 
-#print("The number of {} in the list {} is:".format('Tigers', 'animal_list', count_things(animal_list, 'Tiger')))
-
+print("The number of {} in the list {} is:".format('Tigers', 'animal_list', count_things(animal_list, 'Tiger')))
 
 """
 
@@ -113,8 +118,8 @@ preset functions like make_interval that do the work for us
 
 """
 import numpy as np
-#print(np.linspace(1,100, num=100))
-#print(type(np.linspace(1,100, num=100))) # this will return its class of nd array
+print(np.linspace(1,100, num=100))
+print(type(np.linspace(1,100, num=100))) # this will return its class of nd array
 
 
 

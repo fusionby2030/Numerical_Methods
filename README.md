@@ -1,7 +1,11 @@
 # Summer Semester 2020 of Undergraduate Degree at Uni Leipzig
 
 ## Python Tutorials (Tutorials)
-I give weekly online python tutorials to my classmates in order to prepare them for working with data in the physics field. The tutorials started quite basic with an intro to data structures, and have slowly progressed to root finding algorithms and the next topic will be over binary trees (updated: 10.05.20). Send me an email or write me on Whats-app (+49 1578 7475003) if you would like to take part in the viewing or producing of the tutorial. I pair the theory learned with real world examples from our exercise sheets from Experimental Physics (Atoms and Molecules) and from the data sets from our virtual labs (see below).
+I give weekly online python tutorials to my classmates in order to prepare them for working with data in the physics field. The tutorials started quite basic with an intro to data structures, and have slowly progressed to root finding algorithms and the next topic will be over binary trees. Send me an email or write me on Whats-app (+49 1578 7475003) if you would like to take part in the viewing or producing of the tutorial. I pair the theory learned with real world examples from our exercise sheets from Experimental Physics (Atoms and Molecules) and from the data sets from our virtual labs (see below).
+
+(updated: 10.05.20)
+UPNEXT: Sampling and Randomness using Numpy
+TODO: Add powerpoint presentations 
 
 ## Exercises
 
@@ -18,7 +22,7 @@ TODO: README
 ### Numerical Methods (Numerical Methods)
 Directory is organized the same as EP4. However I have not added a readme for each as the graders for our homework in this class are coders themselves, and I am tried for time generating documentation for each other folder, and feel as though the graders are efficient enough in dissecting code. (updated: 05.05.20)
 
-TODO: README 
+TODO: README
 
 Feel free to clone repository and push changes using git commands.
 
