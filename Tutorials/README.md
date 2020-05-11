@@ -1,7 +1,7 @@
 # Python Tutorials
 last updated (10.05.20)
 
-First I started out with helping out each student with installing python and an IDE. Then I showed how virtual environments work, and how to install packages within them. At the end of each weekly description one will find a list of libraries used, and thus needed for running the files in each week. Each folder has also its respective
+First I started out with helping out each student with installing python and an IDE. Then I showed how virtual environments work, and how to install packages within them. At the end of each weekly description one will find a list of libraries used, and thus needed for running the files in each week. Each folder has also its respective slides for the theory behind the actual code found in the folders. 
 
 ## Syntax of Python
 ### Week of 20.04.20

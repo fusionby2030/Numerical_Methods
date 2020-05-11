@@ -5,7 +5,6 @@ I give weekly online python tutorials to my classmates in order to prepare them 
 
 (updated: 10.05.20)
 UPNEXT: Sampling and Randomness using Numpy
-TODO: Add powerpoint presentations 
 
 ## Exercises
 
