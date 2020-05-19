@@ -1,4 +1,4 @@
-import numpy as np
+
 import matplotlib.pyplot as plt
 
 SMALL_SIZE = 12
@@ -17,11 +17,8 @@ plt.rc('figure', titlesize=BIGGER_SIZE)
 plt.style.use('dark_background')
 pink = '#F08080'
 green = '#96f542'
-"""
 
-f = lambda x: x**3 - 2*x - 5
-
-
+import numpy as np
 def secant_method(f, x0, x1, max_iter=100, tolerance = 1e-5):
     steps_taken = 1
     iter_x, iter_y, iter_count = np.empty(0),np.empty(0),np.empty(0)
@@ -37,12 +34,11 @@ def secant_method(f, x0, x1, max_iter=100, tolerance = 1e-5):
         x1, x0 = x2, x1
         steps_taken += 1
     return x2, iter_x, iter_y, iter_count
-
-
-
-
-
+f = lambda x: x**3 - 2*x - 5
 root, iter_x, iter_y, iter_count = secant_method(f, 1, 4)
+
+
+
 x = np.linspace(0, 4)
 fig, axs = plt.subplots(1, figsize=(10,10))
 axs.plot(x, f(x), label = 'x**3 - 2x - 5')
@@ -66,24 +62,7 @@ for i in range(len(iter_x)):
 axs.set_title('Secant Method: {} iterations'.format(len(iter_count)))
 plt.legend()
 plt.hlines(0, 0, 5, color = 'white')
-plt.savefig('/home/fusionby2030/Uni_Ausgabe/Semester4/EP4/HW_05/secant1.png')
+plt.savefig('/home/fusionby2030/Uni_Ausgabe/Semester4/Numerical_Methods/HW_04/secant1.png')
+"""
 
 """
-def discrete_method_approx(f, x, h=.00000001):
-    return (f(x+h) - f(x)) / h
-
-
-def newton_raphson(f, x, tolerance=.001):
-    steps_taken = 0
-
-    while abs(f(x)) > tolerance:
-        df = discrete_method_approx(f, x)
-        x = x - f(x)/df
-        steps_taken += 1
-    return x, steps_taken
-
-
-
-g = lambda y: y*np.log(y) -1.3
-
-root, steps = newton_raphson(g, 8)
