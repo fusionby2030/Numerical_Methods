@@ -1,0 +1,90 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[a4paper, textwidth=450pt]{geometry}
+
+\graphicspath{ {./data/} }
+
+\title{EP Homework 6}
+\author{Adam Kit}
+\date{19 May 2020}
+
+
+\begin{document}
+
+\maketitle
+\section{Adiabatic Invariant}
+
+
+From what I have read, a quantity that is adiabatic invariant is a quantity/measurement of a system that does not change when there are small changes introduced to paramaters of the system, even though the system's energy changes. Suppose the quantum oscillator is in the energy eigenstate with $E = (n+\frac{1}{2})\hbar \omega$. The wave function would then have $n$ roots. If thye potential is changed slowly, the oscillator is not going to jump to the next eigenstate, but the probability will go to zero (faster to zero if higher magnitude of change in potential). Thus the wave function slowly stretches or compresses, however the number of roots for the wavefunction does not change! This means that the $E$ will maintain at $(n+\frac{1}{2})\hbar \omega$. So once the system is in an eigenstate, if the changes in the system occur on a small magnuitude, it will maintain in this eigenstate, i.e the state is adiabatic!
+
+\section{Three Dimensional Potential Well}
+
+The Schroedinger equation given to us in the notes is given in \ref{schr}
+\begin{equation}
+-\frac{\hbar^2}{2m} \Delta \Psi + U \Psi = E \Psi
+\label{schr}
+\end{equation}
+For a spherical potential well, we need everything in spherical coordinates, thus $\Psi = \Psi(r, \vartheta, \phi)$, and the laplace operator is given by \ref{lsphere}.
+
+\begin{equation}
+\Delta = \frac{1}{r^2} \frac{\partial}{\partial r}(r^2 \frac{\partial}{\partial r}) + \frac{1}{r^2 sin\vartheta}\frac{\partial}{\partial \vartheta} (sin\vartheta \frac{\partial}{\partial \vartheta}) + \frac{1}{r^2 sin^2\vartheta}\frac{\partial^2}{\partial \phi^2}
+\label{lsphere}
+\end{equation}
+In our system, it is important to note where the wave function is being calculated, because we know that the potential $U(r)$ exists only when $r \ge R$, so equation \ref{schr} in spherical coordinates \textit{outside of the well} is given by \ref{outside}. I think that if we just simplify things by calculating first when the wave function is outside the wall (i.e having $U_0$ affect it), then we can find the wave function within by setting $U_0 = 0$
+\begin{equation}
+-\frac{\hbar^2}{2m} \left( \frac{1}{r^2} \frac{\partial }{\partial r}(r^2 \frac{\partial \Psi}{\partial r}) + \frac{1}{r^2 sin\vartheta}\frac{\partial}{\partial \vartheta} (sin\vartheta \frac{\partial \Psi}{\partial \vartheta}) + \frac{1}{r^2 sin^2\vartheta}\frac{\partial^2 \Psi}{\partial \phi^2} \right) + (E - U_0)\Psi = 0
+\label{outside}
+\end{equation}
+We use the ansatz $\Psi = R(r)\Theta (\vartheta) \Phi ( \phi)$ and multiply \ref{outside} by $\frac{r^2 sin\vartheta}{R(r) \Theta(\vartheta) \Phi (\phi)}$ to get:
+$$ \frac{sin^2 \vartheta}{r} \frac{d}{dr} \left(r^2\frac{dR}{dr} \right) + \frac{sin\vartheta}{\Theta} \frac{d}{d\vartheta} \left( sin\vartheta \frac{d\Theta}{d\vartheta} \right) +\frac{1}{\Phi}\frac{d^2 \Phi}{d \phi^2} + \frac{2m}{\hbar^2} (E - U_0) r^2 sin^2\vartheta =  0$$
+Where we should start with solving the angle components first. In \ref{solvephi} we can seperate $r$ and $\vartheta$ on the left side, and $\phi$ on the right side, so that the sides must be equal to some constant $\Upsilon _1$.
+
+\begin{equation}
+\frac{sin^2 \vartheta}{r} \frac{d}{dr} \left(r^2\frac{dR}{dr} \right) + \frac{sin\vartheta}{\Theta} \frac{d}{d\vartheta} \left( sin\vartheta \frac{d\Theta}{d\vartheta} \right) + \frac{2m}{\hbar^2} (E - U_0) r^2 sin^2\vartheta = -  \frac{1}{\Phi}\frac{d^2 \Phi}{d \phi^2}
+\label{solvephi}
+\end{equation}
+Meaning $\frac{d^2 \Phi}{d\phi^2} = -\Upsilon _1 \phi$. This  has the solution $\phi = A e^{\pm i\sqrt{\Upsilon _1} \phi}$ and since $\phi = 2n\phi$ for all integers of $n$, this means that $\sqrt{\Upsilon _1}$ must be an positive or negative integer! So   $\sqrt{\Upsilon _1} = m$ where $m \in Z$ and since the solution must be normalized, we find \ref{phisolution}.
+\begin{equation}
+\Phi_m (\phi) = \frac{1}{\sqrt{2\pi}}e^{im\phi}
+\label{phisolution}
+\end{equation}
+For the left side of \ref{outside}, we divide by $sin^2\vartheta$ and equate it to another constant $\Upsilon_2$, resulting in the $r$ and the $\vartheta$ to be seperated, as seen in \ref{leftside}.
+
+\begin{equation}
+\frac{1}{R}\frac{d}{dr}\left( r^2 \frac{dR}{dr}\right) + \frac{2m}{\hbar^2} r^2 \left( E - U(r))\right) = -\frac{1}{\Theta sin\vartheta} \frac{d}{d\vartheta} \left( sin\vartheta \frac{d\Theta}{d\vartheta }\right) + \frac{m^2}{sin^2\vartheta} = \Upsilon_2
+\label{leftside}
+\end{equation}
+We must use the legendre polynomials to be able to find a solution to this, and end up having a solution looking like:
+
+\begin{equation}
+\Theta_{lm} = P_{lm} cos\vartheta = (1-\zeta ^2)^{|\frac{m}{2}|} \frac{d^{|m|}}{d\zeta^{|m|}}(P_l(\zeta))
+\label{thetasolution}
+\end{equation}
+where $P_l(\zeta)$ is the a sequence of thetas up to some $l$ where $-l\leq m \leq l$ and our product function ansatz becomes $\Psi = R(r) Y_{lm}(\vartheta, \phi)$ where $Y_{lm} = P_{lm}(cos\vartheta) \phi_m (\phi)$. The last remaining piece of the puzzle is found via the relationship r is left with:
+\begin{equation}
+\frac{d}{dr}\left( r^2 \frac{dR}{dr}\right) + \left(\frac{2m}{\hbar^2}r^2 (E - U(r)) - l(l+1) \right) R(r) = 0
+\label{rdifferential}
+\end{equation}
+which can be solved using suitable lagueere polynomials. To visualize these, I implement the code found in  \href{https://github.com/fusionby2030/Numerical_Methods/tree/master/EP4/HW_07}{\textit{radialdistr.py} and \textit{sphericalpotential.py}} to generate the photos seen in \ref{321}, \ref{310}
+
+\begin{figure}
+  \centering
+  \includegraphics{hangdist32-1.png}
+  \caption{$Y_{lm} (\theta, \phi)$ for Hydrogen Atom }
+  \label{321}
+\end{figure}
+
+
+\begin{figure}
+  \centering
+  \includegraphics{hangdist310.png}
+  \caption{$Y_{lm} (\theta, \phi)$ for Hydrogen Atom }
+  \label{310}
+\end{figure}
+\section{Degeneracy}
+With $n = \sum_{i=1}^{3} n_i$ where $n_i = 0, 1, 2, 3, ...$. We can choose a particular $n_1$ such that $n_2 + n_3 = n - n_1$. Now there are $n - n_1 + 1$ number of possible pairs \{$n_2, n_3$\} and $n_2$ can take the values from 0 to $n-1$ and for each $n_2$, the value of $n_3$ must be fixed. So the degree of generacy can be represented by the equation $g_n = \sum_{n_1 = 0}^{n} (n-n_1 +1) = \sum_{n_1 = 0}^{n}(n+1) - \sum_{n_1 = 0}^{n} n_1 = (n+1)(n+1) - \frac{1}{2}n(n+1) = \frac{1}{2}n(n+1)(n+2)$
+
+\end{document}

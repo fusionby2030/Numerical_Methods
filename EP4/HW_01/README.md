@@ -57,5 +57,5 @@ In addition, we receive the two graphs:
 
 ![Mean Squared Displacements][MSD]
 
-[ID]: https://github.com/fusionby2030/Numerical_Methods/edit/master/EP4/HW_01/results/IndividualDisplacements.png "Individual Displacements"
-[MSD]: https://github.com/fusionby2030/Numerical_Methods/edit/master/EP4/HW_01/results/Running_Average_Displacements.png "Mean Squared Displacements"
+[ID]: https://github.com/fusionby2030/Uni_Work_SS20/tree/master/EP4/HW_01/results/IndividualDisplacements.png "Individual Displacements"
+[MSD]: https://github.com/fusionby2030/Uni_Work_SS20/tree/master/EP4/HW_01/results/Running_Average_Displacements.png "Mean Squared Displacements"
