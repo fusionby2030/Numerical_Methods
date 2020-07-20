@@ -30,7 +30,7 @@ For the 2d angular probability, one chooses value of Z to create the plane on wh
 - helper functions:
   - cartesian2spherical
 
-To run the code one needs numpy, scipy, matplotlib, as well as choose which plotting function you would like to use. These can be inserted in the main part of the file. 
+To run the code one needs numpy, scipy, matplotlib, as well as choose which plotting function you would like to use. These can be inserted in the main part of the file.
 
 Sample outputs of 3d plots  below:
 
@@ -40,5 +40,5 @@ Sample outputs of 3d plots  below:
 ### sym-tutor.py
 A brief look at how Sympy works.
 
-[rprob311]: https://github.com/fusionby2030/Uni_Work_SS20/tree/master/EP4/HW_07/files/hangdist31-1.png "Radial Wave Plot n=3, l=m=1"
-[rprob321]: https://github.com/fusionby2030/Uni_Work_SS20/tree/master/EP4/HW_07/files/hangdist32-1.png "Radial Wave Plot n=3, l=2, m=1"
+[rprob311]: files/hangdist31-1.png "Radial Wave Plot n=3, l=m=1"
+[rprob321]: files/hangdist32-1.png "Radial Wave Plot n=3, l=2, m=1"

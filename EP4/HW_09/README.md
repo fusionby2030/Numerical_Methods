@@ -23,10 +23,10 @@ Graphs below:
 ![<r> vs <1/r> for a ground state hydrogen-atom n=2, l=0][expec3]
 
 
-[expec1]: https://github.com/fusionby2030/Uni_Work_SS20/tree/master/EP4/HW_09/files/problem1.png
+[expec1]:files/problem1.png
 
 
-[expec2]: https://github.com/fusionby2030/Uni_Work_SS20/tree/master/EP4/HW_09/files/problem2.png
+[expec2]: files/problem2.png
 
 
-[expec3]: https://github.com/fusionby2030/Uni_Work_SS20/tree/master/EP4/HW_09/files/problem21.png
+[expec3]: files/problem21.png

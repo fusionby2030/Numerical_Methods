@@ -78,12 +78,12 @@ Normally not used as a root finding algorithm
 
 
 
-[Newtons]: https://github.com/fusionby2030/Uni_Work_SS20/tree/master/EP4/HW_03/files/newton_raphson.png "newton_raphson"
+[Newtons]: files/newton_raphson.png "newton_raphson"
 
-[lagrange]: https://github.com/fusionby2030/Uni_Work_SS20/tree/master/EP4/HW_03/files/lagrangepolynomial.png "lagrange"
+[lagrange]: files/lagrangepolynomial.png "lagrange"
 
-[secent]: https://github.com/fusionby2030/Uni_Work_SS20/tree/master/EP4/HW_03/files/secentmethod.png "Secent"
+[secent]: files/secentmethod.png "Secent"
 
-[lagrangepic]: https://github.com/fusionby2030/Uni_Work_SS20/tree/master/EP4/HW_03/files/lagrangepic.png "lagrange"
+[lagrangepic]: files/lagrangepic.png "lagrange"
 
-[graph]: https://github.com/fusionby2030/Uni_Work_SS20/tree/master/EP4/HW_03/files/Figure_1.png "Figure_1"
+[graph]: files/Figure_1.png "Figure_1"

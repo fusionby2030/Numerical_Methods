@@ -31,6 +31,6 @@ For problem 3 and 4, we are able to represent the orbit distances and energies a
 #### thomsonangle.py
 Here I use Monte Carlo sampling so simulate the scattering of a particle as a random walk, and then take the mean angle scattered.
 
-[leq]: https://github.com/fusionby2030/Uni_Work_SS20/tree/master/EP4/HW_04/files/larmoreq.png "Larmor Formula for emitted power"
-[rtrans]: https://github.com/fusionby2030/Uni_Work_SS20/tree/master/EP4/HW_04/files/radiustrans.png "transitional orbital radius for various quantum numbers"
-[etrans]: https://github.com/fusionby2030/Uni_Work_SS20/tree/master/EP4/HW_04/files/energytrans.png "transitional energy for various quantum numbers"
+[leq]: files/larmoreq.png "Larmor Formula for emitted power"
+[rtrans]: files/radiustrans.png "transitional orbital radius for various quantum numbers"
+[etrans]: files/energytrans.png "transitional energy for various quantum numbers"
