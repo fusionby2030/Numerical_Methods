@@ -75,12 +75,13 @@ def plot_angular_surface(n, l, m):
            zlabel='z')
     ax.view_init(40, 35)
     plt.savefig('/home/fusionby2030/Uni_Ausgabe/Semester4/EP4/HW_07/files/hangdist{}{}{}conj.png'.format(n, l, m))
+    plt.savefig('/home/fusionby2030/Uni_Ausgabe/Semester4/Labs/Reports/data/hangdist{}{}{}conj.png'.format(n, l, m))
 
 
 """ Radial plot """
 def plot_radial_component(n, l, m):
     r = np.linspace(0, 25, num = 500)
-    plt.plot(r, hrwfp(r, n=3, l=1, m=0))
+    plt.plot(r, hrwfp(r, n, l, m))
     plt.xlabel('r')
     plt.ylabel('Probability Amplitude')
     plt.title('Hydrogen Radial Probability for n={}, l={}, m={}'.format(n, l, m))
@@ -115,5 +116,5 @@ def cartesian2spherical(x, y, z):
     theta = np.arctan(np.sqrt(x*x + y*y)/z)
     phi = np.arctan(y/x)
     return r, theta[0][0], phi
-if __name__ = "__main__": #https://stackoverflow.com/questions/419163/what-does-if-name-main-do
-    #plot_angular_surface(3, 1, 1)
+if __name__ == "__main__": #https://stackoverflow.com/questions/419163/what-does-if-name-main-do
+    plot_angular_surface(3, 2, 0)

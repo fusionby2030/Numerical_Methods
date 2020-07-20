@@ -35,5 +35,5 @@ The result is below.
 ![Wave function and Probability densities of a superposition as functions of radius][superpos]
 
 
-[pstep]: https://github.com/fusionby2030/Numerical_Methods/edit/master/EP4/HW_06/files/potentialstepdrawing.png "Potential Step Drawing"
-[superpos]: https://github.com/fusionby2030/Numerical_Methods/edit/master/EP4/HW_06/files/superposition1.png "Superposition"
+[pstep]: files/potentialstepdrawing.png "Potential Step Drawing"
+[superpos]: files/superposition1.png "Superposition"
