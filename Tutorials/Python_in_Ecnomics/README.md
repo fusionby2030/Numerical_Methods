@@ -18,22 +18,21 @@ This started as a lecture on Statistical Analysis with python, but is now [27.07
 ## Week Two: Getting to know Python
 - Transition from Binary -> Assembler -> High Level Languages
 - Logic _logic.py_
- - AND 
- - OR 
- - NOT 
- - XOR 
+  - AND 
+  - OR 
+  - NOT 
+  - XOR 
 - Creating a virtual world 
- - Basic Python Data Types _various-types-of-data.py_
+  - Basic Python Data Types _various-types-of-data.py_
   - Immutable vs Mutable 
   - Iterable vs Noniterable 
- - Libraries (Heavy Lifting)
+  - Libraries (Heavy Lifting)
 - Overview of the Steps of Programming Today 
- - Interacting with the outside world
- - Preperation 
- - Transformation (Statistical Analysis) 
- - Modeling and Computation (Connecting Data to Models) 
- - Presentation of Results
+  - Interacting with the outside world
+  - Preperation 
+  - Transformation (Statistical Analysis) 
+  - Modeling and Computation (Connecting Data to Models) 
+  - Presentation of Results
 
-## Week Three: 
-- Getting our hands dirty
- - [Operations](https://docs.python.org/3/library/stdtypes.html) on Python Data types
+## Week Three Getting our hands dirty: 
+- [Operations](https://docs.python.org/3/library/stdtypes.html) on Python Data types
