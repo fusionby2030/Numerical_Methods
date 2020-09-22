@@ -1,0 +1,184 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[a4paper, textwidth=450pt]{geometry}
+\usepackage{amsfonts}
+\renewcommand{\thesubsection}{\arabic{section}.\alph{subsection}}
+\graphicspath{ {./data/} }
+\title{Lab Report E14e - Semiconductor Diodes}
+\author{Adam Kit - 3707437}
+\date{15 September 2020}
+\begin{document}
+\maketitle
+\section*{Introduction}
+
+In this experiment 'we' measure the current-voltage and capacitance-voltage characteristics of diodes.
+
+\subsection*{Current-Voltage Analysis}\label{subsec:current-voltage-analysis}
+First we plot the current voltage characteristics of \textit{Si}, \textit{Zener}, and \textit{LED} diodes.
+This can be found in Figure \ref{fig:allinone}.
+In the following sections, we will analyze the data in Figure \ref{fig:allinone}.
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{allinone.png}
+    \caption{All the characteristic plots. The following abbreviations were used: VC - Voltage Controlled, IC - Current controlled, FB - Forward Biases, RB - Reverse Biased. What each of these mean is a mystery we hope to uncurl. Note that for Silicon's graphing, the green and the red lines overlap as expected.}
+    \label{fig:allinone}
+\end{figure}
+\section{Silicon Diode}\label{sec:silicon-diode}
+For the \textit{Si} diode, we determine the emission coefficient \textit{n} from the Schockley Equation (eq \ref{eq:schockley}).
+
+\begin{equation}
+    I = I_s \left( e^{\left( \frac{U}{nU_t}\right)} - 1 \right)
+    \label{eq:schockley}
+\end{equation}
+Where $I_s$ is the saturation current, $U$ is the diode voltage, and $U_t = \frac{kT}{q}$, where $k=1.38 \times 10^{-23}$ J/K is Boltzmann's constant,  $q=1.6\times 10^{-19}$ C is the electrical charge of an electron.
+We assume that $T = 300$K, room temperature, thus $U_T \approx 26 mV$ \cite{semiconducter}.
+There are many ways to go about finding $n$, but we will just discuss two.
+One way to do this, as suggested in the lab instructions, is to take the natural logarithm of current, such that the current-voltage appears linear, then the slope of the line is simply $\frac{1}{nU_T}$.
+
+A different way to determine $n$ is to fit Schockley's equation to the data using \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html}{\textit{Scipy's curve-fit}}.
+Scipy uses the Levenberg-Marquardt method for fitting problems, which one can read more about in \cite{LMref}
+The fit produced is found in Figure \ref{fig:schockfit}.
+I compare the values determined by both processes in the table \ref{tab:schocktable}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{schockleyfit.png}
+    \caption{Our fit determines the constants in \ref{eq:schockley}. $U_t = 0.26$ was set prior }
+    \label{fig:schockfit}
+\end{figure}
+
+\begin{table}
+    \centering
+    \begin{tabular}{l|l r}
+         & Value & Error\\
+        \hline
+        $n$ & 0.245 & $4.120122 \times 10^{-4}$\\
+        $I_s$ & $6.798 \times 10^{-5}$ & $1.4613 \times 10^{-6}$
+    \end{tabular}
+    \caption{Comparison of constants determined from Schockley Equation. UNITS!}
+    \label{tab:schocktable}
+\end{table}
+
+\section{Zener Diode}\label{sec:zener-diode}
+The breakdown voltage being the minimum voltage that causes a diode to conduct appreciably in reverse and is visualized (thanks to \href{https://en.wikipedia.org/wiki/Breakdown_voltage}{Wikipedia}) Figure \ref{fig:breakdown}.
+To find this we find the x-intercept of the linear part of the current-voltage graph, as seen in \ref{fig:zenerbreakdown}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.1]{breakdown_voltage.png}
+    \caption{Diode I-V diagram}
+    \label{fig:breakdown}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{zenerbreakdown.png}
+    \caption{Diode I-V diagram}
+    \label{fig:zenerbreakdown}
+\end{figure}
+As for the DC and AC resistance, we can use the same I-V charactersitics plot.
+The DC resistance is brought on by the current \textit{before} the breakdown voltage, while the AC is after.
+No diode is a perfect ideal diode, and is thus not a perfect conductor when forward biased.
+Under forward biased condition, the diode offers a resistance, which may be constant, i.e., direct current, or changing, i.e., alternating current.
+From the classic equation $V = IR$ we can determine the DC and AC resistance.
+To determine the DC resistance, we take the ratio of the DC voltage across the diode to the DC current flowing through it.
+Likewise, to determine the AC resistance, we take the ratio of the AC voltage across the diode to the AC current flowing through it.
+The point at which DC current turns into AC current across the Zener diode was determined previously, and is dubbed the breakdown voltage.
+Our determined values are found in Table \ref{tab:zenertable}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{l c r}
+        Breakdown Voltage (V) & DC Resistance (Ohms) & AC Resistance (Ohms) \\
+        \hline
+        5.654 & 93.8429 & 3.94564 \\
+    \end{tabular}
+    \caption{The various values determined for the Zener Diode}
+    \label{tab:zenertable}
+\end{table}
+\section{LED}\label{sec:led}
+The threshold voltage is determined in a similar art as the breakdown voltage, however we use the forward bias regime.
+The reason for this is because of the sensitivity to polarity that LEDs possess.
+A significant amount of current is sent through the LED only if it is in the forward bias, for if it was reverse bias, very little current flows and no light is emitted.
+Although they can be operated using an AC current(reverse regime), there will only be light with the positive voltage causing the LED to turn off and on at the frequency of the AC generator.
+This could be a nice experiment to determine the resonance frequency of AC power suppliers.
+The threshold voltage is the voltage at which current begins to flow through a LED.
+If below the threshold voltage, it will remain unlit.
+By this logic, we could just say that the threshold voltage is just the moment when current begins to increase, however we use the same method as the breakdown voltage.
+A graph is provided in Figure \ref{fig:ledthresh} where the value is determined to be $2.783$
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{ledthresh.png}
+    \caption{Threshold Voltage of an LED, i.e, the point in which it begins to light up as current flows through the LED. The value determined is $2.783$ V}
+    \label{fig:ledthresh}
+\end{figure}
+
+\section{Depletion Layer of Si power diode}
+Provided the measurements of Voltage vs Frequency, we convert the frequency into total capacitance $C_{tot}$ using equation \ref{eq:ctoteq} from the lab manual.
+\begin{equation}
+    C_{tot} = C_G + C_S = \frac{1}{L (2\pi f)^2}
+    \label{eq:ctoteq}
+\end{equation} where $C_G$ is the voltage independent capacitance parallel to the depletion layer capacitance $C_S$.
+Note, the data given is in kilo-Hertz, so we first convert to Hertz.
+We can then graph the capacitance dependency on voltage supplied, as seen in Figure \ref{fig:totcapmodel}
+The fit is a model of equation \ref{eq:ctotfit}.
+\begin{equation}
+    C_{tot} = C_G + C_S = C_G + C_0 \sqrt{\frac{U_D}{U_D - U}}
+    \label{eq:ctotfit}
+\end{equation}
+where $C_0$ is the capacitance for a vanishing applied voltage ($U = 0$).
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{totcapmodel.png}
+    \caption{}
+    \label{fig:totcapmodel}
+\end{figure}
+The fit provided in figure \ref{fig:totcapmodel} gives us the values in table \ref{tab:task3tab}.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{l | l r}
+        Constant & Value & Error \\
+        \hline
+        $C_G$ & $8.4996 \times 10^{-11}$ & $3.75277 \times 10^{-12}$\\
+        $C_0$ & $1.25403 \times 10^{-9}$ & $7.0765 \times 10^{-12}$\\
+        $U_D$  & $0.60122$ & $0.016131$
+    \end{tabular}
+    \caption{Various parameters determined from the fit in figure \ref{fig:totcapmodel}}
+    \label{tab:task3tab}
+\end{table}
+For depletion layer thickness, we use $C_S = \frac{\epsilon_t \epsilon_0 A}{d_s} $ and the relationship $C_S(U) = C_{tot}(U) - C_G$ such that
+\begin{equation}
+    d_s = \frac{\epsilon_r \epsilon_0 A}{C_{tot} - C_G} = \frac{\epsilon_t \epsilon_0 A}{C_0 \sqrt{\frac{U_D}{U_D - U}}}
+    \label{eq:depeq}
+\end{equation}
+The constants used above are the relative permittivity of $\epsilon_r = 11.8$, $\epsilon_0 = 8.854 \times 10^{-12} \frac{s^4 A^2}{m^{3} kg}$ and $A = 22 mm^2$.
+So we know from Eq. \ref{eq:depeq} that the graph for the depletion thickness has a form of the inverse of the graph in Figure \ref{fig:totcapmodel}! i.e.,
+\[d_s \propto C_{tot}^{-1}\]
+We can then grab $C_{tot}$ from \ref{eq:ctoteq} and plot the depletion layer as a function of Voltage.
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{deplaymodel.png}
+    \caption{The depletion layer narrows in a forward biases region (applying a positive voltage to the P-side wrt. the N-side). The field generated by the applied voltage allow free electrons to go into the depletion layer and neutralize opposite charges. The more voltage means more neutralizing and thus the depletion thickness decreases. }
+    \label{fig:deplaymodel}
+\end{figure}
+From Table \ref{tab:task3tab} we can then determine the depletion-layer capacitance $d_0=2.0869 \times 10^{-6}$m $\pm 1.1527 \times 10^{-15}$ from $$d_0= \epsilon_r \epsilon_0 \frac{A}{C_0}$$.
+
+\begin{thebibliography}{9}
+
+\bibitem{LMref}
+    Gavin, Henry
+    \textit{The Levenberg-Marquardt algorithm for nonlinear least squares curve-fitting problems}
+    Duke University, 3 August, 2019
+\bibitem{CMOS}
+    Kang Sung-Mo and Leblebici Yusuf
+    \textit{CMOS Digital Integrated Circuits Analysis and Design}
+    McGraw-Hill Professional (2002)
+\bibitem{semiconducter}
+    Enrico Cataldo, Alberto Di Lieto, Francesco Maccarrone, and Giampiero Paffuti
+    \textit{Measurements and analysis of current–voltage characteristic of a pn diode for an undergraduate physics laboratory.}
+    Dipartimento di Fisica E. Fermi, Universita di Pisa, 22 August 2016
+
+\end{thebibliography}
+\end{document}
