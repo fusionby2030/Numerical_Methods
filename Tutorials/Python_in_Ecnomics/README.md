@@ -60,10 +60,8 @@ This started as a lecture on Statistical Analysis with python, but is now [27.07
     - Bubble Sort
   - Exponential
     - [recursive calculation of Fibonacci](https://stackoverflow.com/questions/360748/computational-complexity-of-fibonacci-sequence/360773#360773)
+
 ## Week Five
-- Common Algorithms 
-  - Search
-  - Sorting 
-  - Statistical Variations
- 
+- Step by Step Work Through 
+    
 

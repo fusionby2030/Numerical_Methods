@@ -33,7 +33,7 @@ https://docs.scipy.org/doc/numpy/reference/generated/numpy.cumsum.html
 
 many ways of summing up arrays
 1.) Looping (inefficient) time: O(n)
-2.) Iterating (also inefficient): O(n)
+2.) Iterating (also inefficient): O(n log n )
 3.) Vectorizing (applying one function to the whole array): O(1)
 
 """

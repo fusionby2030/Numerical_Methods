@@ -9,25 +9,26 @@ We want to find the index of a certain desired value from a given list using lin
 sample = [1, 5, 3, 9, 2, 4, 6, 7, 8]
 
 
-def lin_search(input_list = sample, want = 8):
+def lin_search(input_list, want):
     for index in range(len(input_list) - 1):
         if input_list[index] == want:
             break
         else:
             continue
     return index
+lin_search(sample, 1)
 #timing the function
 #print(timeit.timeit(lin_search, number = 1000))
 """
 Best Case - solving the problem for the best input
-We are searching for the value 1, so the first iteration would find 
+We are searching for the value 1, so the first iteration would find
 """
 
 # print(lin_search(sample, 1))
 
 """
 Average Case
-We are searching for the value in the "middle" of the list, so 2. 
+We are searching for the value in the "middle" of the list, so 2.
 """
 
 # print(linear_search(sample, 2))
@@ -41,11 +42,11 @@ In this case: 8
 
 """
 Constant Time - O(1)
-Not dependent on the input data (n). No matter the size of the input data, the running time will always be the same. 
-ex. 
+Not dependent on the input data (n). No matter the size of the input data, the running time will always be the same.
+ex.
 
 if a > b:
-    return True 
+    return True
 else:
     return False
 """
@@ -58,30 +59,35 @@ def get_first(sample):
 """
 Logarithmic - O(log n)
 Reducing the size of the input data at each time step such that it does not look at all the values of the input data
-Most commonly binary trees or binary searches which we will go into next week. 
+Most commonly binary trees or binary searches which we will go into next week.
 
-ex. 
+ex.
 for index in range(0, len(data), 3):
     print(data[index])
 """
-
+sample = [1, 5, 3, 9, 2, 4, 6, 7, 8]
 
 def binary_search(data = sample, value = 8):
     n = len(data)
     left = 0
     right = n - 1
+    i = 0
     while left <= right:
+        print("Starting Iteration Number {}".format(i))
         middle = (left + right) // 2
         if value < data[middle]:
             right = middle - 1
-            #print("Update Right")
+            print("Update Right")
         elif value > data[middle]:
             left = middle + 1
-            #print("Update Left")
+            print("Update Left")
         else:
+            print("Found the value!!")
             return middle
+        print("Ending Iteration")
+        i = i + 1
     raise ValueError('Value is not in the list')
-
+print(binary_search(sample, 8))
 print(timeit.timeit(binary_search, number = 1000))
 """
 Steps of Binary Search
@@ -97,12 +103,18 @@ Steps of Binary Search
 
 """
 Linear Time - O(n)
-Running time increases at most linearly with the size of the input data. 
+Running time increases at most linearly with the size of the input data.
 
 for value in data:
     print(value)
 """
-
+def lin_search(input_list, want):
+    for index in range(len(input_list) - 1):
+        if input_list[index] == want:
+            break
+        else:
+            continue
+    return index
 
 def linear_search(data, value):
     for index in range(len(data)):
@@ -118,9 +130,9 @@ def linear_search(data, value):
 Quasilinear Time - O(n log n)
 Each operation in the input data has a logarithmic time complexity
 
-ex. 
+ex.
 
-for value in data1: 
+for value in data1:
     result.append(binary_search(data2, value))
 """
 
@@ -164,7 +176,7 @@ print(sample)
 Quadratic Time O(n^2)
 Preforming a linear time operation for each value in the input data
 
-ex 
+ex
 for x in data
     for y in data:
         print(x, y)
@@ -199,7 +211,7 @@ def fibonacci(n):
 
 
 """
-What is the time complexity of my algorithm? 
+What is the time complexity of my algorithm?
 Describe the algorithm based on the largest complexity among all operations
 """
 
